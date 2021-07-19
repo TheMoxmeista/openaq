@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import {createUseStyles} from 'react-jss';
 
+import DetailsModal from './CityDetailsModal';
+
 import { City as CityType } from 'types/cities';
 
 const useStyles = createUseStyles({
@@ -29,7 +31,7 @@ const City = ({ name, country } : CityType) => {
       <button className={classes.root} onClick={() => setOpenModal(!openModal)}>
         {name}, {country}
       </button>
-      {openModal ? <div>MODAL OPEN</div> : null}
+      {openModal ? <DetailsModal name={name} country={country} closeFunc={() => setOpenModal(false)} /> : null}
     </>
   );
 };
