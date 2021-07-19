@@ -1,6 +1,9 @@
 import React from 'react';
 import {createUseStyles} from 'react-jss';
 
+import City from './City';
+import LoadingCities from './LoadingCities';
+
 import { City as CityType, Cities as CitiesType } from 'types/cities';
 
 const useStyles = createUseStyles({
@@ -25,15 +28,13 @@ type CitiesProps = {
   cities: CitiesType
 }
 
-const Cities = ({ cities }: CitiesProps) => {
+const Cities = ({ loading, cities }: CitiesProps) => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      {cities.map((city: CityType) => (
-        <button key={city.name} className={classes.root} onClick={() => {}}>
-          {city.name}, {city.country}
-        </button>
+      {loading ? <LoadingCities /> : cities.map((city: CityType) => (
+        <City key={city.name} name={city.name} country={city.country} />
       ))}
     </div>
   );
