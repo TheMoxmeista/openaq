@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --config webpack.config.js --progress"
+    "dev": "webpack serve --config webpack.config.js --progress",
+    "test": "jest"
   },
   "author": "Kyle Moxham",
   "license": "ISC",
