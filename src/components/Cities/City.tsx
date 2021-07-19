@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {createUseStyles} from 'react-jss';
 
 import DetailsModal from './CityDetailsModal';
+import useFreezeScroll from 'hooks/useFreezeScroll';
 
 import { City as CityType } from 'types/cities';
 
@@ -25,6 +26,7 @@ const useStyles = createUseStyles({
 const City = ({ name, country } : CityType) => {
   const classes = useStyles();
   const [ openModal, setOpenModal ] = useState(false);
+  useFreezeScroll(openModal);
 
   return (
     <>
